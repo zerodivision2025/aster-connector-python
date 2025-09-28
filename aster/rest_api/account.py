@@ -131,7 +131,7 @@ def cancel_order(self, symbol: str, orderId: int = None, origClientOrderId: str 
     """
 
     check_required_parameter(symbol, "symbol")
-    params = {"symbol": symbol, **kwargs}
+    params = {"symbol": symbol, 'orderId': orderId, 'origClientOrderId': origClientOrderId, **kwargs}
     url_path = "/fapi/v1/order"
     return self.sign_request("DELETE", url_path, params)
 
